@@ -34,7 +34,7 @@ public class EmployeeService implements ServiceIMpl {
     @Override
     public Employee deleteEmployee(int id) {
         Employee employee = getByIDEmployee(id);
-        employees.remove(id);
+        employees.remove(employee);
         return employee;
 
     }

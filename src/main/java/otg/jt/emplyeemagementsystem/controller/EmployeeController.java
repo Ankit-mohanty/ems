@@ -1,10 +1,12 @@
 package otg.jt.emplyeemagementsystem.controller;
 
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.Min;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import otg.jt.emplyeemagementsystem.domain.Employee;
+import otg.jt.emplyeemagementsystem.response.ResponseHandeller;
 import otg.jt.emplyeemagementsystem.service.ServiceIMpl;
 
 import java.util.List;
@@ -26,8 +28,10 @@ public class EmployeeController {
     }
 
     @DeleteMapping("/remove/{id}")
-    public Employee removeEmployee(@Min (value = 100) @PathVariable int id) {
-         return  serviceIMpl.deleteEmployee(id);
+    public ResponseEntity<Object> removeEmployee(@PathVariable int id) {
+//        serviceIMpl.deleteEmployee(id);
+        return ResponseHandeller.responseBuilder("Delte Sucessfully", HttpStatus.ACCEPTED,
+                serviceIMpl.deleteEmployee(id));
     }
 
     @GetMapping("/getById/{id}")
