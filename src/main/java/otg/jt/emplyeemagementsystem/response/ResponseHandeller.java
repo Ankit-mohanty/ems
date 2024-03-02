@@ -11,7 +11,7 @@ public static ResponseEntity<Object> responseBuilder(String message, HttpStatus 
     Map<String ,Object> response=new HashMap<>();
     response.put("message",message);
     response.put("status",httpStatus.value());
-    response.put("response",responseObject);
+//    response.put("response",responseObject);
     return new ResponseEntity<>(response,httpStatus);
 }
 }

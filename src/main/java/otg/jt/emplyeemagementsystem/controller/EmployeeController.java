@@ -30,8 +30,7 @@ public class EmployeeController {
     @DeleteMapping("/remove/{id}")
     public ResponseEntity<Object> removeEmployee(@PathVariable int id) {
 //        serviceIMpl.deleteEmployee(id);
-        return ResponseHandeller.responseBuilder("Delte Sucessfully", HttpStatus.ACCEPTED,
-                serviceIMpl.deleteEmployee(id));
+        return ResponseHandeller.responseBuilder("Delte Sucessfully", HttpStatus.ACCEPTED, serviceIMpl.deleteEmployee(id));
     }
 
     @GetMapping("/getById/{id}")
